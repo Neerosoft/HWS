@@ -29,6 +29,9 @@ public class PanelDAO {
 			session.close();
 		}	
 		System.out.println("DBPanel()-->"+nombre_cias+"\n");
+		for(Panel p:nombre_cias) {
+			System.out.println(p.getIdpanel()+ " "+p.getTitle()+" "+p.getCmp());
+		}
 		return nombre_cias;
 		
 	}

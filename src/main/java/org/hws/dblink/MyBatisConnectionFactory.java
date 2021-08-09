@@ -1,5 +1,6 @@
 package org.hws.dblink;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
@@ -9,17 +10,22 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 
 public class MyBatisConnectionFactory {
+	private String ap="";
+	private File f;
 	
-private static SqlSessionFactory sqlSessionFactory;
-	
+	public MyBatisConnectionFactory() {		
+		
+	}
+	private static SqlSessionFactory sqlSessionFactory;
+
 	static {
-		try {			
-			String resource="org/hws/dblink/config.xml";
-			Reader reader=Resources.getResourceAsReader(resource);
+		try {
+			 Reader reader = Resources.getResourceAsReader("config.xml");
 			
 			if(sqlSessionFactory==null) {
 				sqlSessionFactory=new SqlSessionFactoryBuilder().build(reader);
 			}
+			System.out.println("factory = " + sqlSessionFactory);
 			
 	}
 		catch(FileNotFoundException fnfe) {

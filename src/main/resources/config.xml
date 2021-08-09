@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD//Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-<properties resource="org/hws/dblink/credenciales.properties"/>
+<properties resource="credenciales.properties"/>
 
   
   <typeAliases>
@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD//Config 3.0//EN"
 </environments>
 
 <mappers>
-	<mapper resource="org/hws/repo/Panel.xml"/>
+	<mapper resource="Panel.xml"/>
 </mappers>
  
 </configuration>
