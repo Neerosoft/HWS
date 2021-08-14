@@ -4,7 +4,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-    xmlns:pm="http://primefaces.org/mobile"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+    xmlns:pm="http://primefaces.org/mobile"   
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
     
     <f:view renderKitId="PRIMEFACES_MOBILE" />
@@ -12,13 +13,18 @@
     <h:head>
         <title>HWS</title>
         
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-beta.1/jquery.mobile-1.4.0-beta.1.min.css" />
-        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.0-beta.1/jquery.mobile-1.4.0-beta.1.min.js"></script>
-        <link rel="icon" href="https://drive.google.com/file/d/1I6PKjoi6CZhH7iW3zQziTMlS0l8V4SaA/view?usp=sharing" type="image/x-icon" />
+        	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+        	<link rel="stylesheet" href="themes/hws.min.css" />
+			<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+			<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        
+        	
+        
         
         <ui:insert name="head" />
+        
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-12200033-1']);
@@ -38,41 +44,43 @@
         <pm:page styleClass="jqm-demos">            
             <pm:header styleClass="jqm-header">
              
-                <div align="center">
+               <div align="center">
                 <p>HWS</p>
               </div>
-               
-           
-                <p:commandButton id="mainmenu" class="jqm-navmenu-link ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" type="button"/>
-                
-            </pm:header>
-            
-            <ui:insert name="content" />
-          
-           
-     
-        <p:overlayPanel for="mainmenu" widgetVar="pnl-basic2" at="left" showEffect="overlay" dynamic="true" data-theme="a">
-           
-            <p:menu data-theme="a">
+              
+        <p:overlayPanel for="mainmenu" widgetVar="pnl-basic2" at="left" showEffect="overlay" dynamic="true" data-theme="a">           
+            <p:menu data-theme="b" id="mainmenu">
                 <p:menuitem value="Productos" url="#" />
                 <p:menuitem value="Consultas" url="#" />
                 <p:menuitem value="Registro" url="#" />
             </p:menu>
-        </p:overlayPanel>  
-
-      
+        </p:overlayPanel> 
+       
+               
+           
+                
+            </pm:header>
+            
+            <ui:insert name="content" />  
          
+           
+           
             
             
             <pm:footer  fixed="true" tapToggle="false">
             <div align="center">
-                <p>HWSoftware</p>
+            <h:form>
+                <p:tabMenu>
+    				<p:menuitem value="Home" icon="ui-icon-home"  iconPos="top"/>    				
+    				<p:menuitem value="Registrate" icon="ui-icon-search"  iconPos="top"/>
+				</p:tabMenu>
+			</h:form>
               </div>
             </pm:footer>
 
         </pm:page>
         
-        <script language="javascript" src="#{request.contextPath}/resources/main/js/sh.js"></script>
+        <script language="javascript" src="js/sh.js"></script>
         <script language="javascript">
             SyntaxHighlighter.all();
         </script>
