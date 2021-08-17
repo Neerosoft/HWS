@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:pm="http://primefaces.org/mobile">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
      
     <f:view renderKitId="PRIMEFACES_MOBILE" />     
-    <h:head>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-        	<link rel="stylesheet" href="themes/hws.min.css" />
-			<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <h:head>        
+        	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />			
+			<h:outputStylesheet name="red.min.css" />
+			<h:outputStylesheet name="red.css" />
+			<h:outputStylesheet name="jquery.mobile.icons.min.css" />
+        	<h:outputStylesheet name="themes/jquery.mobile.icons.min.css" />
+        	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 			<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 			<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     </h:head>
      
     <h:body>
     <pm:page id="first">  
-    <pm:header title="Contacts" swatch="a">
-                <p:button styleClass="ui-btn-left ui-btn-inline" value="Back" icon="ui-icon-arrow-l" outcome="contact" />
+    		<pm:header title="Contacts" swatch="a">
+    		 <h:form id="formNav">
+                <p:commandButton id="btnBack" styleClass="ui-btn-left ui-btn-inline" value="Back" icon="ui-icon-arrow-l" action="#{contactsView.getHome}"/>
+              </h:form>
             </pm:header>             
             <pm:content>
                 <h:form id="editForm">
@@ -65,12 +69,6 @@
                        
           
  	</pm:page>
- 	
- 	
- 	
- 	 <script language="javascript" src="#{request.contextPath}/syntaxhighlighter/scripts/sh.js"></script>
-        <script language="javascript">
-            SyntaxHighlighter.all();
-        </script>
+
     </h:body>
  </html>

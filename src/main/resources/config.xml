@@ -8,7 +8,8 @@ PUBLIC "-//mybatis.org//DTD//Config 3.0//EN"
 
   
   <typeAliases>
-	<typeAlias alias="panel" type="org.hws.repo.Panel"/>	
+	<typeAlias alias="panel" type="org.hws.repo.Panel"/>
+	<typeAlias alias="perfil" type="org.hws.repo.Perfil"/>	
   </typeAliases> 
   
 
@@ -18,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD//Config 3.0//EN"
 
 <dataSource type="POOLED">
 <property name="driver"	 		value="${driver}"/>
-<property name="url" 			value="${puente}${server}:${port}/${db}${ssl}"/>
+<property name="url" 			value="${puente}${server}"/>
 <property name="username" 		value="${usuario}"/>
 <property name="password" 		value="${pws}"/>
 
@@ -30,6 +31,7 @@ PUBLIC "-//mybatis.org//DTD//Config 3.0//EN"
 
 <mappers>
 	<mapper resource="Panel.xml"/>
+	<mapper resource="Perfil.xml"/>
 </mappers>
  
 </configuration>

@@ -9,18 +9,22 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import org.hws.dao.PanelDAO;
 import org.hws.dblink.MSSQLConnection;
+import org.pojo.Contact;
 
 @SessionScoped
 @ManagedBean(name="index")
 public class Index {
+	
 	private PanelDAO dao;
 	private List lst;
 	private MSSQLConnection mysql;
 	public Connection con;
+	private Contact contact;
 
 	public Index() {
 		this.dao=new PanelDAO();
 		this.mysql=new MSSQLConnection();
+		this.contact=new Contact();
 	
 	}
 	public void buttonActionXML(ActionEvent actionEvent) {
@@ -40,5 +44,11 @@ public class Index {
 	     FacesContext.getCurrentInstance().addMessage(null, message);
    
     }
+	 public String newContact() {
+		  this.contact = new Contact();	         
+	       // return "pm:edit?transition=flip";
+	        return "Account.jsf";
+	 }
+	 
 
 }

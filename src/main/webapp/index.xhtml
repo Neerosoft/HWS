@@ -1,26 +1,61 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
     xmlns:pm="http://primefaces.org/mobile"
-    xmlns:pe="http://primefaces.org/ui/extensions"
-    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"   
-    template="/WEB-INF/mobile.xhtml">
-    
-     <ui:define name="head">
-     <pm:content>   
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
      
-  
-     </pm:content>       
-    </ui:define>   
-    
-    <ui:define name="content">     
-    <pm:content> 
-     <h:body>
-     </h:body>       
-     </pm:content>       
-    </ui:define>
-    
+    <f:view renderKitId="PRIMEFACES_MOBILE" />     
+    <h:head>        
+        	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />			
+			<h:outputStylesheet name="red.min.css" />
+			<h:outputStylesheet name="red.css" />
+			<h:outputStylesheet name="jquery.mobile.icons.min.css" />
+        	<h:outputStylesheet name="themes/jquery.mobile.icons.min.css" />
+        	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+			<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </h:head>
      
-</ui:composition>
+    <h:body>
+         
+        <pm:page id="first" swatch="a">        
+           	<pm:header title="Contacts" >            	          
+            	<p:commandButton id="mainmenu" class="jqm-navmenu-link ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" type="button"/>
+            	<h:form id="formHeader">
+            		<p:commandButton styleClass="ui-btn-right ui-btn-inline" value="New" icon="ui-icon-plus"  action="#{index.newContact}"/> 
+            	</h:form>            
+            </pm:header>              
+                        
+             <pm:content>             
+             	<p:overlayPanel for="mainmenu" widgetVar="pnl-basic2" at="left" showEffect="overlay" dynamic="true" swatch="b">
+              		<h:form id="menuForm">           
+            			<p:menu swatch="a">            	
+                			<p:menuitem value="Tienda"  action="#{index.newContact}" type="button"/>                	
+                			<p:menuitem value="Sonido" url="#" />
+                			<p:menuitem value="Debates" url="#" />
+           	 			</p:menu>
+           	 		</h:form>
+        		</p:overlayPanel> 
+        		
+        		<!-- Contenido Inicial --> 
+        		<div align="center">
+        		 <p:graphicImage name="logo.png" alt="Image Description for #{image}" title="#{image}"/> 
+        		 <h:outputLabel  value="El poder de PrimeFace" />
+        		 </div> 		             
+            	            	         
+        	</pm:content>          
+                      	 	    	 	
+        	 <pm:footer fixed="true" >
+        	 <h:form id="formFooter"> 	 			 	 
+                <p:tabMenu activeIndex="0">
+                    <p:menuitem value="Home" icon="ui-icon-home" url="https://www.google.com" iconPos="top"/>
+                    <p:menuitem value="Settings" icon="ui-icon-gear" url="https://www.google.com" iconPos="top"/>
+                </p:tabMenu>  
+                </h:form>                             
+            </pm:footer>             
+        </pm:page>        
+    </h:body>     
+</html>

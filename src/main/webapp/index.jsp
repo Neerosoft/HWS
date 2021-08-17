@@ -1,4 +1,4 @@
 <% 
-    response.sendRedirect("contact.jsf");
+    response.sendRedirect("index.jsf");
     return;
 %>

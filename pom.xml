@@ -57,13 +57,17 @@
     	<version>2.2.10</version>
 	</dependency>
 	
-
+	<dependency>
+    	<groupId>javax.enterprise</groupId>
+    	<artifactId>cdi-api</artifactId>
+    	<version>1.2</version>
+	</dependency>
+	
 	<dependency>
     	<groupId>org.primefaces</groupId>
     	<artifactId>primefaces</artifactId>
     	<version>6.1</version>
 	</dependency>
-	
 	
 	<dependency>
     	<groupId>org.primefaces</groupId>
@@ -106,7 +110,17 @@
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
         <version>8.0.11</version>
-    </dependency>    
+    </dependency> 
+
+
+	<dependency>
+		<groupId>io.github.willena</groupId>
+		<artifactId>sqlite-jdbc</artifactId>
+		<version>3.35.5</version>
+	</dependency>
+<!-- Thanks for using https://jar-download.com -->
+
+   
     
     <dependency>
         <groupId>org.mybatis</groupId>
@@ -198,7 +212,7 @@
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>Portal${packname}</finalName>
+							<finalName>HWS${packname}</finalName>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
 								<descriptor>src/main/assembly/webapp.xml</descriptor>

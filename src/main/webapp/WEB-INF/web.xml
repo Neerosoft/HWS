@@ -5,13 +5,8 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 
   <display-name>HWS</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.jsf</welcome-file>
+ 	<welcome-file>index.jsf</welcome-file>
+    
   </welcome-file-list>
   
   <servlet>
@@ -22,8 +17,9 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>*.jsf</url-pattern>
+    <url-pattern>*.jsf</url-pattern>         
   </servlet-mapping>
+  
   
   <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
@@ -38,6 +34,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   
   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-  </listener>  
+  </listener> 
+   
 
 </web-app>
