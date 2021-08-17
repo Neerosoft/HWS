@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+     
+    <f:view renderKitId="PRIMEFACES_MOBILE" />     
+    <h:head>        
+        	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />			
+			<h:outputStylesheet name="red.min.css" />
+			<h:outputStylesheet name="red.css" />
+			<h:outputStylesheet name="jquery.mobile.icons.min.css" />
+        	<h:outputStylesheet name="themes/jquery.mobile.icons.min.css" />
+        	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+			<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </h:head>
+     
+    <h:body>
+    <pm:page id="first">  
+    		<pm:header title="Contacts" swatch="a">
+    		 <h:form id="formNav">
+                <p:commandButton id="btnBack" styleClass="ui-btn-left ui-btn-inline" value="Back" icon="ui-icon-arrow-l" action="#{contactsView.getHome}"/>
+              </h:form>
+            </pm:header>             
+            <pm:content>
+                <h:form id="editForm">
+                    <p:outputPanel id="editFormPanel">
+                        <pm:field>
+                            <p:outputLabel for="firstname" value="Firstname" />
+                            <p:inputText id="firstname" value="#{contactsView.contact.firstname}" />
+                        </pm:field>
+ 
+                        <pm:field>
+                            <p:outputLabel for="surname" value="Surname" />
+                            <p:inputText id="surname" value="#{contactsView.contact.surname}" />
+                        </pm:field>
+ 
+                        <pm:field>
+                            <p:outputLabel for="phone" value="Phone" />
+                            <p:inputText id="phone" value="#{contactsView.contact.phone}" type="tel"/>
+                        </pm:field>
+ 
+                        <pm:field>
+                            <p:outputLabel for="email" value="Email" />
+                            <p:inputText id="email" value="#{contactsView.contact.email}" type="email"/>
+                        </pm:field>
+ 
+                        <pm:field>
+                            <p:outputLabel for="address" value="Address" />
+                            <p:inputTextarea id="address" value="#{contactsView.contact.address}" />
+                        </pm:field>
+ 
+                        <pm:field>
+                            <p:outputLabel for="gender" value="Gender" />
+                            <p:selectOneButton id="gender" value="#{contactsView.contact.gender}">
+                                <f:selectItem itemLabel="Male" itemValue="Male" />
+                                <f:selectItem itemLabel="Female" itemValue="Female" />
+                            </p:selectOneButton>
+                        </pm:field>
+                    </p:outputPanel>
+                     
+                    <p:commandButton value="Save" action="#{contactsView.saveContact}"  icon="ui-icon-check"/>
+                </h:form>                                                  
+            </pm:content>    
+                       
+          
+ 	</pm:page>
+
+    </h:body>
+ </html>
