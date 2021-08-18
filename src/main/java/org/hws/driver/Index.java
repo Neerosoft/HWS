@@ -1,29 +1,40 @@
 package org.hws.driver;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
+import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.hws.dao.PanelDAO;
 import org.hws.dblink.MSSQLConnection;
 import org.pojo.Contact;
 
-@SessionScoped
 @ManagedBean(name="index")
-public class Index {
-	
+@ViewScoped
+public class Index implements Serializable {
+
+	static final long serialVersionUID = 1L;
 	private PanelDAO dao;
 	private List lst;
 	private MSSQLConnection mysql;
 	public Connection con;
 	private Contact contact;
-
+	
+	
+	 @PostConstruct
+    public void init() {
+	      
+    }
 	public Index() {
-		this.dao=new PanelDAO();
-		this.mysql=new MSSQLConnection();
+		/*this.dao=new PanelDAO();
+		this.mysql=new MSSQLConnection();*/
 		this.contact=new Contact();
 	
 	}
@@ -31,12 +42,12 @@ public class Index {
 		 addMessage("Welcome to Primefaces XML!!");
    
     }
-	 public void addMessage(String summary) {
+	public void addMessage(String summary) {
 		 	this.lst=dao.DBPanel();		 
 	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	 }
-	 public void buttonActionNoXML(ActionEvent actionEvent) {
+	public void buttonActionNoXML(ActionEvent actionEvent) {
 		 this.con=this.mysql.getConnection();
 		 this.mysql.close(con);
 		
@@ -44,11 +55,10 @@ public class Index {
 	     FacesContext.getCurrentInstance().addMessage(null, message);
    
     }
-	 public String newContact() {
-		  this.contact = new Contact();	         
-	       // return "pm:edit?transition=flip";
-	        return "Account.jsf";
-	 }
-	 
+	public String leafAccount() {
+		System.out.println("Se ejecuta el Metodo leafAccount");
+		return "Account.jsf";
+		
+	}
 
 }

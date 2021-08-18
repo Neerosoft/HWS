@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 public class Contact implements Serializable{
  
-    private String firstname;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String firstname;
     private String surname;
     private String phone;
     private String address;

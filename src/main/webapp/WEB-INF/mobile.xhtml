@@ -4,51 +4,33 @@
 	xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-    xmlns:pm="http://primefaces.org/mobile"
-    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:pm="http://primefaces.org/mobile">
      
-    <f:view renderKitId="PRIMEFACES_MOBILE" />     
+    <f:view renderKitId="PRIMEFACES_MOBILE" /> 
+    
     <h:head>        
         	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />			
-			<h:outputStylesheet name="hws.min.css" />
-			<h:outputStylesheet name="hws.css" />
+			<h:outputStylesheet name="red.min.css" />
+			<h:outputStylesheet name="red.css" />
 			<h:outputStylesheet name="jquery.mobile.icons.min.css" />
         	<h:outputStylesheet name="themes/jquery.mobile.icons.min.css" />
-        	<h:outputStylesheet name="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
-        	<h:outputScript name="http://code.jquery.com/jquery-1.11.1.min.js" />
-        	<h:outputScript name="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js" />
-    </h:head>
-     
-    <h:body>
-         
-        <pm:page id="mainpage">        
-                <pm:header title="Contacts" >          
-            	<p:commandButton id="mainmenu" class="jqm-navmenu-link ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" type="button"/>
-            	<p:commandButton id="btnNew" styleClass="ui-btn-right ui-btn-inline" value="New" icon="ui-icon-plus"  outcome="Account"/> 
-            	<p:accordionPanel for="mainmenu"> 
-            	<p:menu swatch="b" id="menu">            	
-                	<p:menuitem value="Tienda" url="#"/>                	
-                	<p:menuitem value="Sonido" url="#" />
-                	<p:menuitem value="Debates" url="#" />
-           	 	</p:menu>
-           	 	</p:accordionPanel>           
-            </pm:header> 
-             
-                        
+			<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </h:head>    
+    <h:body> 
+     <pm:page>                       
             <!-- <pm:content/> --> 
-            <ui:insert name="content"/>         
-              
-                      	 	    	 	
+            <ui:insert name="content"/>     		
         	
-     		
-        	
- 			 <pm:footer fixed="true" > 	 			 	 
+ 			<pm:footer fixed="true" >
+        	 <h:form id="formFooter"> 	 			 	 
                 <p:tabMenu activeIndex="0">
-                    <p:menuitem value="Home" icon="ui-icon-home" url="#" iconPos="top"/>
-                    <p:menuitem value="Settings" icon="ui-icon-gear" url="#" iconPos="top"/>
-                </p:tabMenu>                               
-            </pm:footer> 			
-            
+                    <p:menuitem value="Home" icon="ui-icon-home" action="#{mobile.backHome}" iconPos="top"/>
+                    <p:menuitem value="Settings" icon="ui-icon-gear" url="https://www.google.com" iconPos="top"/>
+                </p:tabMenu>  
+                </h:form>                             
+            </pm:footer>             
         </pm:page>          
        
     </h:body>     
