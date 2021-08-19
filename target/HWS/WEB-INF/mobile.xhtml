@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:pm="http://primefaces.org/mobile">
+     
+    <f:view renderKitId="PRIMEFACES_MOBILE" /> 
+    
+    <h:head>        
+        	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />			
+			<h:outputStylesheet name="blue.min.css" />
+			<h:outputStylesheet name="blue.css" />
+			<h:outputStylesheet name="jquery.mobile.icons.min.css" /> 
+			  
+			<h:outputStylesheet name="demo.css" />
+       		<h:outputStylesheet name="sh.css" />
+       		     
+			<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </h:head>    
+    <h:body> 
+     <pm:page>                       
+            <!-- <pm:content/> --> 
+            <ui:insert name="content"/>     		
+        	
+ 			<pm:footer fixed="true" >
+        	 <h:form id="formFooter"> 	 			 	 
+                <p:tabMenu activeIndex="0">
+                    <p:menuitem value="Home" icon="ui-icon-home" action="#{mobile.backHome}" iconPos="top"/>
+                    <p:menuitem value="Settings" icon="ui-icon-gear" url="https://www.google.com" iconPos="top"/>
+                </p:tabMenu>  
+                </h:form>                             
+            </pm:footer>             
+        </pm:page>          
+       
+    </h:body>     
+</html>

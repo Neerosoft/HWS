@@ -2,7 +2,6 @@ package org.hws.driver;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
