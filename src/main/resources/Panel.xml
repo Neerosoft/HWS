@@ -3,7 +3,7 @@
 
   <mapper namespace="Panel">  	
   	
-  	<select id="vistapanel" resultType="panel">
+  	<select id="vistapanel" resultType="perfil">
   		SELECT * FROM panel;
   	</select> 
   	 	

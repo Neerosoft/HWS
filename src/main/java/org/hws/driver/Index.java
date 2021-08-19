@@ -9,8 +9,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import org.hws.dao.PanelDAO;
-import org.hws.dblink.MSSQLConnection;
+import org.hws.dao.PerfilDAO;
+import org.hws.dblink.SQLiteConnection;
 import org.pojo.Contact;
 
 @ManagedBean(name="index")
@@ -18,9 +18,9 @@ import org.pojo.Contact;
 public class Index implements Serializable {
 
 	static final long serialVersionUID = 1L;
-	private PanelDAO dao;
+	private PerfilDAO dao;
 	private List lst;
-	private MSSQLConnection mysql;
+	private SQLiteConnection sqlite;
 	public Connection con;
 	private Contact contact;
 	
@@ -30,8 +30,8 @@ public class Index implements Serializable {
 	      
     }
 	public Index() {
-		/*this.dao=new PanelDAO();
-		this.mysql=new MSSQLConnection();*/
+		this.dao=new PerfilDAO();
+		this.sqlite=new SQLiteConnection();
 		this.contact=new Contact();
 	
 	}
@@ -40,13 +40,13 @@ public class Index implements Serializable {
    
     }
 	public void addMessage(String summary) {
-		 	this.lst=dao.DBPanel();		 
+		 	this.lst=dao.TblPerfil();		 
 	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	 }
 	public void buttonActionNoXML(ActionEvent actionEvent) {
-		 this.con=this.mysql.getConnection();
-		 this.mysql.close(con);
+		/* this.con=this.mysql.getConnection();
+		 this.mysql.close(con);*/
 		
 		 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,"No XMl",  null);
 	     FacesContext.getCurrentInstance().addMessage(null, message);
@@ -57,5 +57,13 @@ public class Index implements Serializable {
 		return "Account.jsf";
 		
 	}
+	public void  btnCnxDBActionListener(ActionEvent actionEvent) {
+		this.lst=this.dao.TblPerfil();
+		this.con=this.sqlite.getConnection();
+		
+		 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,"No XMl",  null);
+	     FacesContext.getCurrentInstance().addMessage(null, message);
+  
+   }
 
 }
