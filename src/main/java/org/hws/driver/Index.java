@@ -59,7 +59,7 @@ public class Index implements Serializable {
 	public void  btnCnxDBActionListener(ActionEvent actionEvent) {
 		this.lst=this.dao.TblPerfil();
 		this.con=this.sqlite.getConnection();
-		
+		this.sqlite.close(con);
 		 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,"No XMl",  null);
 	     FacesContext.getCurrentInstance().addMessage(null, message);
   
