@@ -29,6 +29,19 @@ public class MyBatisConnectionFactory {
 			//Reader reader = Resources.getResourceAsReader("config.xml");
 			
 			System.out.println("\n\nDirectorio "+f.getAbsolutePath());
+			String[] listado = f.list();
+			if (listado == null || listado.length == 0) {
+			    System.out.println("No hay elementos dentro de la carpeta actual");
+			    
+			}
+			else {
+			    for (int i=0; i< listado.length; i++) {
+			        System.out.println(listado[i]);
+			    }
+			}
+			
+		
+		
 			if(sqlSessionFactory==null) {
 				sqlSessionFactory=new SqlSessionFactoryBuilder().build(inputStream);
 			}
