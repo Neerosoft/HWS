@@ -4,7 +4,7 @@
   <mapper namespace="Perfil">  	
   	
   	<select id="vistaperfil" resultType="perfil">
-  		SELECT * FROM perfil;
+  		SELECT * FROM "perfil";
   	</select> 
   	 	
   </mapper>

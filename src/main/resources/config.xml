@@ -20,8 +20,7 @@ PUBLIC "-//mybatis.org//DTD//Config 3.0//EN"
 <dataSource type="POOLED">
 <property name="driver"	 		value="${driver}"/>
 <property name="url" 			value="${puente}${server}"/>
-<property name="username" 		value="${usuario}"/>
-<property name="password" 		value="${pws}"/>
+
 
 
 
