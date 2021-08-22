@@ -9,19 +9,16 @@
                 
          
 	<ui:define name="content">
-    	 <h:form id="formHeader">      
+    	 <h:form id="formHeader">
+    	  <p:growl id="growl" showDetail="true" />      
            	<pm:header title="HWS" data-theme="a" >            	          
             	<p:commandButton id="mainmenu" class="jqm-navmenu-link ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all"/>
-      			<p:commandButton styleClass="ui-btn-right ui-btn-inline" value="New" icon="ui-icon-plus"  action="#{index.leafAccount}"  />             	           
+      			         	           
             </pm:header>              
                         
              <pm:content>                         
              	<p:overlayPanel for="mainmenu" widgetVar="pnl-basic2" at="left" showEffect="overlay" dynamic="true">             		       
-            			<p:menu swatch="a">            	
-                			<p:menuitem value="Tienda"  action="#{index.leafAccount}" type="button" icon="ui-icon-check"/>                	
-                			<p:menuitem value="Sonido" url="#" />
-                			<p:menuitem value="Debates" url="#" />
-           	 			</p:menu>         	 		
+            			<p:menu model="#{menu.model}" swatch="a"/> 		
         		</p:overlayPanel> 
         		
         		
@@ -29,7 +26,7 @@
         		<div align="center">
         		 	<p:graphicImage name="dbimg/logo.png" alt="Image Description for #{image}" title="#{image}"/> 
         		 	<h:outputLabel  value="El poder de PrimeFace" />
-        		 	<p:commandButton id="btnCnxDB" value="Conexion SQLite" actionListener="#{index.btnCnxDBActionListener}"  /> 
+        		 	
         		</div> 		             
                      	         
         </pm:content>

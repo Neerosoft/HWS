@@ -3,6 +3,7 @@ package org.hws.repo;
 public class Perfil {
 	private String idperfil;
 	private String perfilname;
+	private String op;
 
 	public Perfil() {
 		
@@ -23,6 +24,15 @@ public class Perfil {
 	public void setPerfilname(String perfilname) {
 		this.perfilname = perfilname;
 	}
+
+	public String getOp() {
+		return op;
+	}
+
+	public void setOp(String op) {
+		this.op = op;
+	}
+	
 	
 	
 

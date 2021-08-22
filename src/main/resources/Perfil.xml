@@ -2,9 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 
   <mapper namespace="Perfil">  	
-  	
-  	<select id="vistaperfil" resultType="perfil">
-  		SELECT * FROM perfil;
+  
+  	<!-- Se consultan los perfiles -->
+  	<select id="TPerfil" resultType="perfil">
+  		SELECT * FROM perfil order by idperfil;
   	</select> 
+  	
+  	<!-- Se Guarda un Perfil -->
+  	<select id="NuevoPerfil"  useCache="false" statementType="CALLABLE">
+  		<![CDATA[
+  			call public.sp_perfil(
+  				#{op,mode=IN,jdbcType=VARCHAR},
+  				#{idperfil,mode=IN,jdbcType=VARCHAR},
+  				#{perfilname,mode=IN,jdbcType=VARCHAR});
+  		]]> 		
+  	</select>
+  	 
   	 	
   </mapper>

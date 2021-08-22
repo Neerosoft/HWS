@@ -1,37 +1,52 @@
 package org.hws.driver;
 import java.io.Serializable;
-import java.sql.Connection;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import org.hws.dao.PerfilDAO;
-import org.hws.dblink.SQLiteConnection;
-import org.pojo.Contact;
+//import org.hws.dao.PerfilDAO;
+
+import org.primefaces.component.menu.Menu;
+import org.primefaces.model.menu.MenuItem;
+
+
 
 @ManagedBean(name="index")
 @ViewScoped
 public class Index implements Serializable {
 
 	static final long serialVersionUID = 1L;
-	private PerfilDAO dao;
-	private List lst;
-	private SQLiteConnection sqlite;
-	public Connection con;
-	private Contact contact;
-	
+	private MenuItem mnPerfil; 
+	/*private PerfilDAO dao;
+	private List lst;*/	
 	
 	 @PostConstruct
     public void init() {
+		
 	      
     }
+	 
+	 
+	public MenuItem getMnPerfil() {
+		
+		return mnPerfil;
+	}
+
+
+	public void setMnPerfil(MenuItem mnPerfil) {
+		this.mnPerfil = mnPerfil;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 	public Index() {
-		this.dao=new PerfilDAO();
-		this.sqlite=new SQLiteConnection();
-		this.contact=new Contact();
+		//this.dao=new PerfilDAO();
 	
 	}
 	public void buttonActionXML(ActionEvent actionEvent) {
@@ -51,16 +66,19 @@ public class Index implements Serializable {
 	     FacesContext.getCurrentInstance().addMessage(null, message);
    
     }
-	public String leafAccount() {
-		System.out.println("Se ejecuta el Metodo leafAccount");
-		return "Account.jsf";
+	public String perfilPage() {
+		 FacesContext context = FacesContext.getCurrentInstance();
+		 String viewId = context.getViewRoot().getViewId();
+
+		
+		 System.out.println(viewId);
+		
+		return "Perfil";
 		
 	}
 	public void  btnCnxDBActionListener(ActionEvent actionEvent) {
-		this.lst=this.dao.TblPerfil();
-		this.con=this.sqlite.getConnection();
-		this.dao.ViewRows();
-		
+		/*this.lst=this.dao.TblPerfil();	
+		int h=dao.getPerfilID();*/		
 		
 		 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,"No XMl",  null);
 	     FacesContext.getCurrentInstance().addMessage(null, message);
